@@ -52,9 +52,9 @@ class ExamenController extends Controller
             ]);
         }
 
-        if($request->nombre && $request->nombre != $usuario->name){
+        if($request->nombre != $usuario->name){
             $request->validate([
-                'nombre' => 'max:64',
+                'nombre' => 'required|max:64',
             ]);
             $usuario->update([
                 'name' => $request->nombre,
